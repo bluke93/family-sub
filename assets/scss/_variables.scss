@@ -1,0 +1,98 @@
+// font colors
+$font-color: #ccc;
+$font-color-secondary: #aaa;
+$font-color-tertiary: #fff;
+$font-color-current-user: #ffffff;
+// background colors
+$background-color: #111;
+$background-color-secondary: #222;
+$background-color-tertiary: #333;
+$background-color-current-user: #003344;
+
+// border colors
+$border-color: #222;
+$border-color-secondary: #333;  
+$border-color-tertiary: #444;
+
+// box shadow colors
+$box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.4);
+$box-shadow-secondary: 0 0 16px 0 rgba(0, 0, 0, 0.6);
+$box-shadow-tertiary: 0 0 16px 0 rgba(0, 0, 0, 0.8);
+
+// spaces
+$space-small: 8px;
+$space-medium: 16px;
+$space-large: 24px;
+$space-xlarge: 32px;
+$space-xxlarge: 40px;
+$space-xxxlarge: 48px;
+
+// font sizes
+$font-size-small: 12px;
+$font-size-medium: 16px;
+$font-size-large: 24px;
+$font-size-xlarge: 32px;
+$font-size-xxlarge: 40px;
+
+// font weights
+$font-weight-light: 300;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// line heights
+$line-height-small: 1;
+$line-height-medium: 1.15;
+$line-height-large: 1.25;
+$line-height-xlarge: 1.35;
+$line-height-xxlarge: 1.45;
+
+// letter spacing
+$letter-spacing-small: 0.5px;
+$letter-spacing-medium: 1px;
+$letter-spacing-large: 1.5px;
+$letter-spacing-xlarge: 2px;
+$letter-spacing-xxlarge: 2.5px;
+
+// border radius
+$border-radius-small: 4px;
+$border-radius-medium: 8px;
+$border-radius-large: 16px;
+$border-radius-xlarge: 24px;
+
+// transition
+$transition-duration-short: 0.2s ease-out;
+$transition-duration-medium: 0.4s ease-out;
+$transition-duration-long: 0.6s ease-out;
+
+// typography classes
+.text-small {
+  font-size: $font-size-small;
+  line-height: $line-height-small;
+  letter-spacing: $letter-spacing-small;
+}
+
+.text-medium {
+  font-size: $font-size-medium;
+  line-height: $line-height-medium;
+  letter-spacing: $letter-spacing-medium;
+}
+
+.text-large {
+  font-size: $font-size-large;
+  line-height: $line-height-large;
+  letter-spacing: $letter-spacing-large;
+}
+
+.text-xlarge {
+  font-size: $font-size-xlarge;
+  line-height: $line-height-xlarge;
+  letter-spacing: $letter-spacing-xlarge;
+}
+
+.text-xxlarge {
+  font-size: $font-size-xxlarge;
+  line-height: $line-height-xxlarge;
+  letter-spacing: $letter-spacing-xxlarge;
+}
+
+      
