@@ -9,11 +9,13 @@
 
 <style scoped lang="scss">
 @use '@/assets/scss/_variables.scss' as *;
+
 .page-wrapper {
   position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
   margin-top: 100px;
+  margin-bottom: $space-large;
 }
 </style>

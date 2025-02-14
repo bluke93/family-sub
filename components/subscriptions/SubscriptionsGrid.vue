@@ -30,10 +30,20 @@ defineProps<{
 @use '@/assets/scss/_variables.scss' as *;
 
 .subscription-container {
-  display: flex;
+  display: grid;
   flex-direction: column;
   gap: $space-medium;
   width: 100%;
   position: relative;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr); 
+
+  @media (min-width: $breakpoint-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 </style>
