@@ -1,75 +1,52 @@
-# Nuxt Minimal Starter
+# Family Sub Manager
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A simple Vue 3/Nuxt application to track and manage shared subscription plans. Originally built to manage a Nintendo Switch Online Family Plan, but adaptable for any shared subscription.
 
-## Setup
+## Purpose
 
-Make sure to install dependencies:
+Until now, I managed my subscription manually by sending emails, WhatsApp, or Telegram messages to members. However, I didn't want to create a group, and people often replied late. This made it difficult to determine the final quota per person until the last moment.  
 
-```bash
-# npm
-npm install
+With this app, I aim to **centralize everything**, automate renewal reminders, and dynamically calculate each member's share based on how many people choose to renew. Also members can check by themselves the status of the subscription.
 
-# pnpm
-pnpm install
+## Features
 
-# yarn
-yarn install
+### For Subscription Owners (Leaders)
+- View subscription details: start date, end date, renewal date, and current members.
+- Invite new members.
+- Remove members.
+- Send renewal reminders and calculate each member's share of the cost.
 
-# bun
-bun install
-```
+### For Members
+- View subscription details (start, end, total price, and personal quota).
+- Indicate renewal interest.
 
-## Development Server
+### Subscription Details
+- Tracks start and end dates.
+- Shows total cost and split cost among members.
+- Late joiners only pay for remaining months before renewal.
 
-Start the development server on `http://localhost:3000`:
+## Tech Stack
+- **Vue 3** / **Nuxt 3**
+- **TypeScript**
+- **SCSS**
+- **Pinia**
+- **Supabase**
 
-```bash
-# npm
-npm run dev
+## Setup & Installation
 
-# pnpm
-pnpm dev
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/bluke93/family-sub-manager.git
+   ```
+2. Install dependencies:
+   ```sh
+   cd family-sub-manager
+   npm install
+   ```
+3. Configure environment variables (Supabase credentials, etc.).
 
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+   
+5. Run the development server:
+   ```sh
+   npm run dev
+   ```
