@@ -1,4 +1,3 @@
-// retrieve user from supabase
 import { createClient } from '@supabase/supabase-js'
 
 if (!process.env.DB_URL || !process.env.DB_KEY) {
@@ -20,42 +19,32 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const { data, error } = await supabase.auth.setSession({
+  // First get the auth user to get their ID
+  const { data: authData, error: authError } = await supabase.auth.setSession({
     access_token: token,
     refresh_token: token,
   })
 
-  if (error) {
+  if (authError) {
     throw createError({
       statusCode: 401,
-      statusMessage: error.message,
+      statusMessage: authError.message,
     })
   }
 
-  if (!data.user) {
-    throw createError({
-      statusCode: 401,
-      statusMessage: 'User not found',
-    })
-  }
-
-  // Fetch additional user data from the users table
+  // Then fetch the user data from the users table
   const { data: userData, error: userError } = await supabase
     .from('users')
-    .select('created_at, full_name')
-    .eq('id', data.user.id)
+    .select('*')
+    .eq('id', authData.user.id)
     .single()
 
   if (userError) {
     throw createError({
       statusCode: 500,
-      statusMessage: 'Error fetching user data',
+      statusMessage: userError.message,
     })
   }
 
-  return {
-    ...data.user,
-    created_at: userData.created_at,
-    full_name: userData.full_name,
-  }
-})
+  return userData
+}) 

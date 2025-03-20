@@ -18,7 +18,11 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
         authStore.setUser({
           id: user.id,
           email: user.email as string,
+          created_at: user.created_at,
+          full_name: user.full_name,
         })
+
+        
       }
     } catch (error) {
       authStore.logout()

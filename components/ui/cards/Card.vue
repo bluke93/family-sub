@@ -1,6 +1,8 @@
 <template>
-  <div class="card">
-    <slot />
+  <div class="card-container">
+    <div class="card-content">
+      <slot />
+    </div>
   </div>
 </template>
 
@@ -8,14 +10,18 @@
 <style scoped lang="scss">
 @use '@/assets/scss/_variables.scss' as *;
 
-.card {
+.card-container {
   position: relative;
   background-color: $background-color-tertiary;
   border-radius: $border-radius-medium;
-  padding: $space-medium;
   box-shadow: $box-shadow;
   display: flex;
-  flex-shrink: 1;
   flex-grow: 1;
+  overflow: hidden;
+  .card-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>
