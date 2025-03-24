@@ -222,6 +222,8 @@ definePageMeta({
 @use '@/assets/scss/_variables.scss' as *;
 .container {
   padding: 0 $space-medium;
+  max-width: $container-max-width;
+  margin: 0 auto;
 
   .service-container {
     margin-bottom: $space-large;

@@ -48,6 +48,8 @@ const isCurrentUser = computed(() => {
   gap: $space-small;
   width: 100%;
   position: relative;
+  padding-bottom: $space-xxlarge;
+  border-bottom: 1px solid $border-color-tertiary;
 
   .subscription-name {
     display: flex;
@@ -60,25 +62,16 @@ const isCurrentUser = computed(() => {
 
     .members-count {
       font-size: $font-size-small;
-      font-weight: $font-weight-medium;
-      color: $font-color-secondary;
-      margin-bottom: $space-small;
       background-color: $background-color-tertiary;
       padding: $space-small;
+      display: flex;
+      flex-shrink: 0;
+      flex-grow: 0;
       border-radius: $border-radius-large;
       border: 1px solid $border-color-tertiary;
+      font-weight: $font-weight-medium;
+      color: $font-color-secondary;
     }
-  }
-
-  .members-count {
-    font-size: $font-size-small;
-    color: $font-color-secondary;
-    margin-bottom: $space-small;
-    background-color: $background-color-secondary;
-    padding: $space-small;
-    display: flex;
-    flex-shrink: 0;
-    flex-grow: 0;
   }
 
   .subscription-members {
