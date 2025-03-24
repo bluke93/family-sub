@@ -7,6 +7,12 @@
   </div>
 </template>
 
+<script setup>
+useHead({
+  title: 'FSM - Family Subscription Manager',
+})
+</script>
+
 <style scoped lang="scss">
 @use '@/assets/scss/_variables.scss' as *;
 
