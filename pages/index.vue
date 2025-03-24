@@ -107,7 +107,7 @@ definePageMeta({
     color: $font-color-current-user;
     
     &:hover {
-      background: darken($background-color-current-user, 5%);
+      background: $background-color-current-user;
       box-shadow: $box-shadow;
     }
   }
