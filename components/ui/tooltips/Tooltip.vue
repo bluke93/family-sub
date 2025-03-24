@@ -28,12 +28,34 @@ const isVisible = ref<boolean>(false)
 const position = ref<Position>({ x: 0, y: 0 })
 const isDesktop = ref(false)
 
-const tooltipStyle = computed(() => ({
-  position: 'fixed' as const,
-  left: `${position.value.x + props.offset.x}px`,
-  top: `${position.value.y + props.offset.y}px`,
-  zIndex: 9999
-}))
+const tooltipStyle = computed(() => {
+  const tooltipElement = document.querySelector('.tooltip')
+  let finalX = position.value.x + props.offset.x
+  let finalY = position.value.y + props.offset.y
+
+  if (tooltipElement) {
+    const tooltipRect = tooltipElement.getBoundingClientRect()
+    const windowWidth = window.innerWidth
+    const windowHeight = window.innerHeight
+
+    // Adjust horizontal position if tooltip would overflow
+    if (finalX + tooltipRect.width > windowWidth) {
+      finalX = position.value.x - tooltipRect.width - props.offset.x
+    }
+
+    // Adjust vertical position if tooltip would overflow
+    if (finalY + tooltipRect.height > windowHeight) {
+      finalY = position.value.y - tooltipRect.height - props.offset.y
+    }
+  }
+
+  return {
+    position: 'fixed' as const,
+    left: `${finalX}px`,
+    top: `${finalY}px`,
+    zIndex: 9999
+  }
+})
 
 const updatePosition = (event: MouseEvent): void => {
   position.value = {

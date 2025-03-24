@@ -1,7 +1,9 @@
 <template>
   <header class="header">
     <div class="logo">
-      NSOS
+      <NuxtLink to="/">
+        FSM
+      </NuxtLink>
     </div>
     <div v-if="isLoggedIn" class="user">
       <div class="user-info" @click="toggleMobileMenu">
@@ -11,12 +13,12 @@
         <div class="user-info-name">{{ displayUser }}</div>
       </div>
       <div class="mobile-menu" :class="{ 'is-open': isMobileMenuOpen }">
+        <a href="/dashboard">Dashboard</a>
         <a @click.prevent="logout">Logout</a>
       </div>
     </div>
     <div v-else class="user">
       <a href="/auth/login">Login</a>
-      <a href="/auth/register">Register</a>
     </div>
   </header>
 </template>
@@ -61,6 +63,18 @@ const displayUser = computed(() => {
   box-shadow: $box-shadow;
   z-index: 100;
   height: 50px;
+
+  .logo {
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    color: $font-color-tertiary;
+    text-decoration: none;
+    line-height: 1px;
+    a {
+      text-decoration: none;
+      color: $font-color-tertiary;
+    }
+  }
 
   .user-info {
     display: flex;

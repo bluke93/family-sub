@@ -1,6 +1,11 @@
 <template>
   <div class="subscription-container">
-    <h3>{{ service.name }}</h3>
+    <h3 class="subscription-name">
+      {{ service.name }} 
+      <span class="members-count">
+        {{ service.max_members }} / {{ members.length }}
+      </span>
+    </h3>
     <div class="subscription-members">
       <Member 
         v-for="member in members" 
@@ -22,7 +27,6 @@ const props = defineProps<{
   service: Service
 }>()
 
-// always put the logged in user in the first position
 const members = computed(() => {
   return [...props.service.members].sort((a, b) => a.user_id === props.service.owner_id ? -1 : 1)
 })
@@ -44,6 +48,39 @@ const isCurrentUser = computed(() => {
   gap: $space-small;
   width: 100%;
   position: relative;
+
+  .subscription-name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    color: $font-color;
+    margin-bottom: $space-small;
+
+    .members-count {
+      font-size: $font-size-small;
+      font-weight: $font-weight-medium;
+      color: $font-color-secondary;
+      margin-bottom: $space-small;
+      background-color: $background-color-tertiary;
+      padding: $space-small;
+      border-radius: $border-radius-large;
+      border: 1px solid $border-color-tertiary;
+    }
+  }
+
+  .members-count {
+    font-size: $font-size-small;
+    color: $font-color-secondary;
+    margin-bottom: $space-small;
+    background-color: $background-color-secondary;
+    padding: $space-small;
+    display: flex;
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+
   .subscription-members {
     display: grid;
     grid-template-columns: 1fr;

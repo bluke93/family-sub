@@ -30,7 +30,6 @@ onMounted(async () => {
     },
   })
   services.value = data as Service[]
-  console.log(services.value)
 })
 </script>
 
